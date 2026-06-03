@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="신은경 선생님의 어린이집 교육자료실">
+  <title>신은경 선생님 교육자료실</title>
+  <style>
+    :root {
+      --bg: #fff8e8;
+      --paper: #ffffff;
+      --ink: #263238;
+      --muted: #667078;
+      --line: #233238;
+      --green: #2f7d6d;
+      --mint: #dff5ec;
+      --coral: #ef6f5e;
+      --sun: #f8c74d;
+      --sky: #dcecff;
+      --shadow: rgba(35, 50, 56, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(248, 199, 77, 0.28) 0 90px, transparent 92px),
+        radial-gradient(circle at 92% 8%, rgba(47, 125, 109, 0.16) 0 120px, transparent 122px),
+        linear-gradient(180deg, #fffdf6 0%, var(--bg) 48%, #eef8f3 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      min-height: 390px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255, 253, 246, 0.98) 0%, rgba(255, 253, 246, 0.9) 44%, rgba(255, 253, 246, 0.2) 76%),
+        url("teacher_illust.png");
+      background-size: cover;
+      background-position: center 38%;
+    }
+
+    .intro {
+      max-width: 680px;
+      padding: 58px 34px 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--green);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--green);
+      border-radius: 50%;
+      background: var(--sun);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.08;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .lead {
+      max-width: 650px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 21px);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+      border-bottom: 3px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      text-align: right;
+      word-break: keep-all;
+    }
+
+    .content-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .content-banner {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      min-height: 154px;
+      padding: 22px;
+      border: 3px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(220, 236, 255, 0.9)),
+        linear-gradient(90deg, var(--sky), var(--mint));
+      box-shadow: 8px 8px 0 var(--shadow);
+      transition: transform 140ms ease, box-shadow 140ms ease;
+    }
+
+    .content-banner:focus-visible {
+      outline: 4px solid var(--coral);
+      outline-offset: 4px;
+    }
+
+    .content-banner:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 12px 12px 0 var(--shadow);
+    }
+
+    .content-mark {
+      display: grid;
+      place-items: center;
+      width: 92px;
+      height: 92px;
+      border: 3px solid var(--line);
+      border-radius: 8px;
+      background: var(--sun);
+      color: var(--line);
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .content-copy {
+      min-width: 0;
+    }
+
+    .content-kicker {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .content-title {
+      margin: 0;
+      font-size: clamp(22px, 3.2vw, 34px);
+      line-height: 1.25;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .content-desc {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+
+    .open-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 96px;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      background: var(--coral);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .teacher-note {
+      margin: 22px 0 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(35, 50, 56, 0.16);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .teacher-note strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 34px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 24px, 640px);
+        padding-top: 18px;
+      }
+
+      .hero {
+        min-height: 360px;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 246, 0.98) 0%, rgba(255, 253, 246, 0.88) 45%, rgba(255, 253, 246, 0.26) 100%),
+          url("teacher_illust.png");
+        background-size: cover;
+        background-position: center top;
+      }
+
+      .intro {
+        padding: 32px 22px 180px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 8px;
+        text-align: left;
+      }
+
+      .content-banner {
+        grid-template-columns: 74px minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .content-mark {
+        width: 74px;
+        height: 74px;
+        font-size: 34px;
+      }
+
+      .open-label {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .page {
+        width: min(100% - 18px, 420px);
+      }
+
+      .hero {
+        min-height: 340px;
+        background-position: center top;
+      }
+
+      .intro {
+        padding: 24px 18px 172px;
+      }
+
+      .content-banner {
+        padding: 18px;
+      }
+
+      .content-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .content-mark {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="intro">
+        <div class="eyebrow">어린이집 교육자료</div>
+        <h1 id="page-title">신은경 선생님 교육자료실</h1>
+        <p class="lead">교실에서 바로 활용할 수 있는 활동 자료와 태블릿 콘텐츠를 한곳에 모았습니다.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="contents-title">
+      <div class="section-head">
+        <h2 id="contents-title">교육 콘텐츠</h2>
+        <p class="section-note">새 자료는 같은 배너 형식으로 이어서 추가합니다.</p>
+      </div>
+
+      <div class="content-list">
+        <a class="content-banner" href="./식재료_낱말퀴즈_태블릿.html" aria-label="식재료 가로세로 낱말퀴즈 열기">
+          <div class="content-mark" aria-hidden="true">가</div>
+          <div class="content-copy">
+            <span class="content-kicker">태블릿 활동</span>
+            <h3 class="content-title">식재료 가로세로 낱말퀴즈</h3>
+            <p class="content-desc">식재료 이름을 힌트 카드와 낱말판으로 익히는 참여형 퀴즈입니다.</p>
+          </div>
+          <span class="open-label">자료 열기</span>
+        </a>
+      </div>
+    </section>
+
+    <p class="teacher-note" aria-label="신은경 선생님 간단 소개">
+      <strong>신은경 선생님</strong> · 총 경력 11년(유치원 7년, 어린이집 4년) · 현) 금빛하나어린이집 주임교사, 돌고래반 담임교사
+    </p>
+
+    <p class="footer">GitHub Pages 정적 페이지로 사용할 수 있는 교육자료 인덱스입니다.</p>
+  </main>
+</body>
+</html>
